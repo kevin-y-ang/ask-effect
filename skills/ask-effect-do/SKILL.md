@@ -11,13 +11,9 @@ Implement a user request using the Effect TypeScript library, referencing the Ef
 
 ## Check the Effect API reference
 
-Run the Effect API reference staleness check before doing anything else:
+Check whether `.vendor/effect/` exists in the repo root.
 
-[staleness-check.sh](./scripts/staleness-check.sh)
-
-**If OK:** proceed to the next section.
-
-**If MISSING:** ask the user the following question:
+**If missing:** ask the user the following question:
 
 > The Effect API reference is not available. Would you like me to run the `/ask-effect-init` skill? This will download the Effect API reference under `<repo-root>/.vendor/` and add `.vendor/` to .gitignore.
 
@@ -27,27 +23,7 @@ Run the Effect API reference staleness check before doing anything else:
 **If the user agrees:** run the `/ask-effect-init` skill.
 **If the user declines:** stop — tell the user this skill is not effective without the Effect API reference.
 
-**If STALE:** ask the user the following question:
-
-> The Effect API reference is {{AGE}} days old. APIs may have changed. Want me to update it first?
-
-- **If you have an ask-question tool available (e.g. `AskQuestion` tool in Cursor, `AskUserQuestion` tool in Claude Code, `request_user_input` tool in Codex):** use it with the options "Update" and "Continue without updating".
-- **Otherwise:** ask the user directly.
-
-**If the user agrees to update:**
-
-```bash
-git -C .vendor/effect pull --depth 1 origin main
-```
-
-**If the user declines:** proceed with the current API reference.
-
-**If ERROR:** tell the user the `.vendor/effect` directory appears corrupted. Ask the user the following question:
-
-> The Effect API reference appears corrupted. Would you like me to re-run the `/ask-effect-init` skill to re-clone it?
-
-- **If you have an ask-question tool available (e.g. `AskQuestion` tool in Cursor, `AskUserQuestion` tool in Claude Code, `request_user_input` tool in Codex):** use it with the options "Yes" and "No".
-- **Otherwise:** ask the user directly.
+**If present:** proceed to the next section.
 
 ## Implement the request
 
