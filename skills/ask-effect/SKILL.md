@@ -11,11 +11,11 @@ Answer questions about the Effect TypeScript library by searching the Effect API
 
 ## Check the Effect API reference
 
-Check whether `.vendor/effect/` exists in the repo root.
+Check whether `.reference/effect/` exists in the repo root.
 
 **If missing:** ask the user the following question:
 
-> The Effect API reference is not available. Would you like me to run the `/ask-effect-init` skill? This will download the Effect API reference under `<repo-root>/.vendor/` and add `.vendor/` to .gitignore.
+> The Effect API reference is not available. Would you like me to run the `/ask-effect-init` skill? This will download the Effect API reference under `<repo-root>/.reference/` and add `.reference/` to .gitignore.
 
 - **If you have an ask-question tool available (e.g. `AskQuestion` tool in Cursor, `AskUserQuestion` tool in Claude Code, `request_user_input` tool in Codex):** use it with the options "Yes" and "No".
 - **Otherwise:** ask the user directly.
@@ -38,12 +38,12 @@ Always cite file paths and line numbers. Show relevant code snippets.
 
 **Question:** {{USER_QUESTION}}
 
-**API reference:** `.vendor/effect/`
+**API reference:** `.reference/effect/`
 
 **Directory structure:**
 
 ```
-.vendor/effect/
+.reference/effect/
 ├── packages/effect/              # Core Effect library
 │   ├── src/                      #   module source files (Effect.ts, Stream.ts, etc.)
 │   ├── src/internal/             #   internal implementation details

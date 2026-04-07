@@ -11,32 +11,32 @@ Effect lives at `github.com/effect-ts/effect` — shallow clone pulls a single c
 
 **If the skill was invoked explicitly by the user:** consider that as permission to just go ahead and execute.
 
-## If `.vendor/effect/` does NOT exist
+## If `.reference/effect/` does NOT exist
 
 Clone with shallow depth:
 
 ```bash
 git clone --depth 1 --filter=blob:none \
-  https://github.com/effect-ts/effect.git .vendor/effect
+  https://github.com/effect-ts/effect.git .reference/effect
 ```
 
-Then ensure `.vendor/` is in the **project root** `.gitignore` (not inside the clone):
+Then ensure `.reference/` is in the **project root** `.gitignore` (not inside the clone):
 
 ```bash
-grep -qxF '.vendor/' .gitignore 2>/dev/null || printf '\n.vendor/\n' >> .gitignore
+grep -qxF '.reference/' .gitignore 2>/dev/null || printf '\n.reference/\n' >> .gitignore
 ```
 
-Do NOT `cd` into `.vendor/effect/` — use `git -C` to avoid running subsequent commands from the wrong directory.
+Do NOT `cd` into `.reference/effect/` — use `git -C` to avoid running subsequent commands from the wrong directory.
 
-## If `.vendor/effect/` already exists
+## If `.reference/effect/` already exists
 
 Update to latest:
 
 ```bash
-git -C .vendor/effect pull --depth 1 origin main
+git -C .reference/effect pull --depth 1 origin main
 ```
 
 ## Checklist
 
-- [ ] `.vendor/effect/` exists with source files
-- [ ] `.vendor/` is in `.gitignore`
+- [ ] `.reference/effect/` exists with source files
+- [ ] `.reference/` is in `.gitignore`
