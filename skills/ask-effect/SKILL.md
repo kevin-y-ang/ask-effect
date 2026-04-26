@@ -11,7 +11,9 @@ Answer questions about the Effect TypeScript library by searching the Effect API
 
 ## Check the Effect API reference
 
-Check whether `.reference/effect/` exists in the repo root.
+cd to the repo root and run `test -d .reference/effect || echo "missing"` to see if the reference exists in the repo root.
+
+**If exists:** proceed to the next section.
 
 **If missing:** ask the user the following question:
 
@@ -22,8 +24,6 @@ Check whether `.reference/effect/` exists in the repo root.
 
 **If the user agrees:** run the `/ask-effect-init` skill.
 **If the user declines:** stop — tell the user you cannot answer Effect questions without the Effect API reference.
-
-**If present:** proceed to the next section.
 
 ### Search the Effect API reference to answer the question
 

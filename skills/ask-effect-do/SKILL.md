@@ -11,7 +11,9 @@ Implement a user request using the Effect TypeScript library, referencing the Ef
 
 ## Check the Effect API reference
 
-Check whether `.reference/effect/` exists in the repo root.
+cd to the repo root and run `test -d .reference/effect || echo "missing"` to see if the reference exists in the repo root.
+
+**If exists:** proceed to the next section.
 
 **If missing:** ask the user the following question:
 
@@ -22,8 +24,6 @@ Check whether `.reference/effect/` exists in the repo root.
 
 **If the user agrees:** run the `/ask-effect-init` skill.
 **If the user declines:** stop — tell the user this skill is not effective without the Effect API reference.
-
-**If present:** proceed to the next section.
 
 ## Implement the request
 
