@@ -5,8 +5,7 @@ Claude Code skills for working with the Effect TypeScript library directly from 
 ## Skills
 
 - `/ask-effect` — Answer questions about Effect modules, APIs, and patterns by searching the actual source code. Always cites file paths and line numbers.
-- `/ask-effect-do` — Implement a request using Effect. Writes the code directly while using subagents to look up accurate APIs from the source.
-- `/ask-effect-init` — Set up the Effect source via shallow clone of `github.com/effect-ts/effect`.
+- `/ask-effect-init` — Vendor the Effect source as a `git subtree` under `repos/effect/` from `github.com/Effect-TS/effect`.
 
 ## Install
 
