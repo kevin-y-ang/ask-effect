@@ -94,8 +94,25 @@ To keep your editor from surfacing search results and auto-imports from the vend
 
 Other editors can be configured similarly.
 
+## Configure the TypeScript toolchain
+
+Scan the repo root for config files belonging to the following tools: TypeScript, ESLint, oxlint, Biome, Prettier, oxfmt, Vitest, Jest.
+
+List the tools that were detected, then ask the user:
+
+> Would you like me to modify {{TOOL_LIST}} to exclude `repos/`?
+
+- **If you have an ask-question tool available (e.g. `AskQuestion` tool in Cursor, `AskUserQuestion` tool in Claude Code, `request_user_input` tool in Codex):** use it with the options "Yes, modify all the tools", "Choose which tools to modify" and "No".
+- **Otherwise:** ask the user directly.
+
+If the user picks "Choose which tools to modify", ask a follow-up multi-select question listing only the detected tools.
+
+For each chosen tool, locate its config and add the appropriate exclusion for `repos/`.
+
 ## Checklist
 
 - [ ] `repos/effect/` exists with source files
 - [ ] Subtree commit is in the project's git history
-- [ ] `AGENTS.md` references `@repos/` as read-only reference material
+- [ ] _(optional)_ `AGENTS.md` and/or `CLAUDE.md` reference `@repos/` as read-only reference material
+- [ ] _(optional)_ Editor configured to exclude `repos/` from search, watching, and auto-imports
+- [ ] _(optional)_ Detected TypeScript toolchain configs updated to exclude `repos/`
